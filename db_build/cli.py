@@ -4,7 +4,7 @@ import sqlite_utils
 from sqlite_utils.utils import TypeTracker, rows_from_file
 
 def define_db_name():
-    "Define database name when no parameter is passed"
+    "Define database name when its name is not passed as parameter"
     path = pathlib.Path().resolve()
     default_db = path.name + '.db'
     dbs = [db.name for db in path.iterdir() if pathlib.Path(db).suffix in ('.db',)]
@@ -13,7 +13,7 @@ def define_db_name():
     return default_db
 
 def get_files_paths(paths):
-    "Get files and files in folders"
+    "Get plain files and files in folders"
     extended = []
     for path in paths:
         p = pathlib.Path(path)
